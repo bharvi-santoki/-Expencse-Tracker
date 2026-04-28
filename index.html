@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">₹</span>
+        <span class="logo-text">Spendly</span>
+      </div>
+      <p class="tagline">Track every rupee. Stay in control.</p>
+    </div>
+  </header>
+
+  <!-- ── MAIN LAYOUT ── -->
+  <main class="main-layout">
+
+    <!-- LEFT PANEL: Summary + Form -->
+    <aside class="left-panel">
+
+      <!-- Balance Cards -->
+      <div class="summary-cards">
+        <div class="card card-balance">
+          <span class="card-label">Total Balance</span>
+          <span class="card-amount" id="balance">₹0.00</span>
+        </div>
+        <div class="summary-row">
+          <div class="card card-income">
+            <span class="card-label">↑ Income</span>
+            <span class="card-amount" id="total-income">₹0.00</span>
+          </div>
+          <div class="card card-expense">
+            <span class="card-label">↓ Expense</span>
+            <span class="card-amount" id="total-expense">₹0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Transaction Form -->
+      <div class="form-box">
+        <h2 class="form-title">Add Transaction</h2>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" id="description" placeholder="e.g. Lunch, Salary..." maxlength="40" />
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount (₹)</label>
+          <input type="number" id="amount" placeholder="0.00" min="0.01" step="0.01" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category">
+              <option value="Food">🍔 Food</option>
+              <option value="Transport">🚗 Transport</option>
+              <option value="Shopping">🛍 Shopping</option>
+              <option value="Health">💊 Health</option>
+              <option value="Entertainment">🎮 Entertainment</option>
+              <option value="Education">📚 Education</option>
+              <option value="Salary">💼 Salary</option>
+              <option value="Other">📦 Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" />
+          </div>
+        </div>
+
+        <div class="type-toggle">
+          <button class="toggle-btn active" id="btn-expense" data-type="expense">Expense</button>
+          <button class="toggle-btn" id="btn-income" data-type="income">Income</button>
+        </div>
+
+        <button class="add-btn" id="add-btn">+ Add Transaction</button>
+        <p class="form-error" id="form-error"></p>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT PANEL: Filter + List -->
+    <section class="right-panel">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <div class="filter-left">
+          <select id="filter-category">
+            <option value="All">All Categories</option>
+            <option value="Food">🍔 Food</option>
+            <option value="Transport">🚗 Transport</option>
+            <option value="Shopping">🛍 Shopping</option>
+            <option value="Health">💊 Health</option>
+            <option value="Entertainment">🎮 Entertainment</option>
+            <option value="Education">📚 Education</option>
+            <option value="Salary">💼 Salary</option>
+            <option value="Other">📦 Other</option>
+          </select>
+          <select id="filter-type">
+            <option value="All">All Types</option>
+            <option value="income">Income Only</option>
+            <option value="expense">Expense Only</option>
+          </select>
+        </div>
+        <button class="clear-btn" id="clear-all-btn">🗑 Clear All</button>
+      </div>
+
+      <!-- Transaction List -->
+      <div class="transaction-list" id="transaction-list">
+        <div class="empty-state" id="empty-state">
+          <span class="empty-icon">📭</span>
+          <p>No transactions yet.<br/>Add one to get started!</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
